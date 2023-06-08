@@ -1,7 +1,6 @@
 module.exports = {
-  title: 'Webpack Vanilla JS — Template',
-  description:
-    'Start a Vanilla JavaScript App, SPA, landing page or website using Webpack, Babel, Core-JS, SASS / SCSS, Tailwind CSS and much more, in just 30 seconds.',
+  title: 'Our Brauser',
+  description: 'Custom browser implementation',
   keywords: `
       vanilla js webpack, vanillajs webpack, vanilla.js webpack, vanilla-js webpack,
       vanilla javascript webpack, vanillajavascript webpack, vanilla.javascript webpack, vanilla-javascript webpack,

@@ -1,5 +1,4 @@
 import '../css/global.css';
-// eslint-disable-next-line import/no-unresolved
 import '../scss/global.scss';
 
 import { fileLoader } from './modules/file-loader';
@@ -7,13 +6,13 @@ import { fileParser } from './modules/file-parser';
 import { Renderer } from './modules/renderer';
 import { appState } from './modules/state';
 
-// events
+// config event
 const whenFileLoaded = async (event) => {
-  const fileReference = event.target.files[0];
   try {
-    // file loading
+    const fileReference = event.target.files[0];
+    // loader
     const uiTxt = await fileLoader.getFileAsTxt(fileReference);
-    // file parsing
+    // parser
     const uiModel = await fileParser.toUI({
       from: 'txt',
       file: uiTxt
@@ -54,7 +53,6 @@ const whenSearch = async (event) => {
   }
 };
 
-// run
 document.addEventListener('DOMContentLoaded', () => {
   const fileInput = document.querySelector('#file-input');
   fileInput.addEventListener('change', whenFileLoaded);

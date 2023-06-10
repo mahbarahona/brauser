@@ -94,11 +94,19 @@ module.exports = () => {
       new fileManager({
         events: {
           onEnd: [
+            // {
+            //   copy: [
+            //     {
+            //       source: getDirectory('src/assets/favicon/**'),
+            //       destination: 'dist/favicon'
+            //     }
+            //   ]
+            // },
             {
               copy: [
                 {
-                  source: getDirectory('src/assets/favicon/**'),
-                  destination: 'dist/favicon'
+                  source: getDirectory('src/assets/data/**'),
+                  destination: 'dist/data'
                 }
               ]
             },

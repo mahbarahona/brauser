@@ -49,34 +49,22 @@
   </head>
 
   <body>
-    <main class="os">
-      <div class="brauser">
-        <div class="brauser-header">
-          <form name="search-form" id="search-form" class="form-control search">
-            <input
-              type="text"
-              name="search"
-              class="search-input"
-              placeholder="https:///some-address.com"
-            />
-            <button type="submit">buscar</button>
-          </form>
-          <div class="form-control">
-            <label for="file-input" class="load-file-label">Import file</label>
-            <input
-              style="width: 0; height: 0; position: absolute"
-              type="file"
-              name="file-input"
-              id="file-input"
-              accept=".json"
-            />
-          </div>
+    <main>
+      <canvas id="engine"></canvas>
+      <div>
+        <div class="form-control">
+          <label for="file-input" class="load-file-label">Import file</label>
+          <input
+            style="width: 0; height: 0; position: absolute"
+            type="file"
+            name="file-input"
+            id="file-input"
+            accept=".json"
+          />
         </div>
-        <div class="brauser-content">
-          <div class="renderer">
-            <canvas id="engine"></canvas>
-          </div>
-        </div>
+        <a class="download-file" href="assets/data/default-ui.json" download="">
+          download default-ui.json</a
+        >
       </div>
     </main>
   </body>

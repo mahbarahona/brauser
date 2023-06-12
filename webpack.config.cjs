@@ -69,12 +69,12 @@ module.exports = () => {
           'apple-mobile-web-app-title': meta.title
         },
         title: meta.title,
-        icon192: isProduction
-          ? '/favicon/favicon-192.webp'
-          : '/assets/favicon/favicon-192.webp',
-        icon512: isProduction
-          ? '/favicon/favicon-512.webp'
-          : '/assets/favicon/favicon-512.webp',
+        // icon192: isProduction
+        //   ? '/favicon/favicon-192.webp'
+        //   : '/assets/favicon/favicon-192.webp',
+        // icon512: isProduction
+        //   ? '/favicon/favicon-512.webp'
+        //   : '/assets/favicon/favicon-512.webp',
         manifest: isProduction ? '/app.webmanifest' : '/assets/app.webmanifest',
         sitemap: isProduction ? '/sitemap.xml' : '/assets/sitemap.xml',
         template: getDirectory('src/index.html'),
@@ -94,11 +94,19 @@ module.exports = () => {
       new fileManager({
         events: {
           onEnd: [
+            // {
+            //   copy: [
+            //     {
+            //       source: getDirectory('src/assets/favicon/**'),
+            //       destination: 'dist/favicon'
+            //     }
+            //   ]
+            // },
             {
               copy: [
                 {
-                  source: getDirectory('src/assets/favicon/**'),
-                  destination: 'dist/favicon'
+                  source: getDirectory('src/assets/data/**'),
+                  destination: 'dist/data'
                 }
               ]
             },

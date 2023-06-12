@@ -1,0 +1,95 @@
+{
+    "screen":{
+        "width":320,
+        "height":500,
+        "stroke-width":1,
+        "stroke-color":"255,200,100,1",
+        "fill-color":"255,255,255,1",
+        "stroke":true,
+        "fill":true,
+        "unit":1,
+        "resources":{
+            "contentPolicy":"script:self, data:self, http-only:true",
+            "list":[
+                    {
+                        "id":0,
+                        "type": "IMG",
+                        "name": "logo.png",
+                        "mimeType":"image/png",
+                        "source": "https://some-domain.com/assets/img/"
+                    }
+                ]
+        },
+        "elements":[
+            {
+                "id":0,
+                "type":"TEXT",
+                "value":"my text",
+                "position":"0,100",
+                "font-family":"Arial,Tahoma,sans-serif",
+                "font-size":10,
+                "stroke-width":1,
+                "stroke-color":"255,200,100,1",
+                "fill-color":"255,255,255,1",
+                "stroke":true,
+                "fill":true
+            },
+            {
+                "id":1,
+                "type":"DOT",
+                "position":"100,100",
+                "radius":9,
+                "stroke-width":1,
+                "stroke-color":"255,200,100,1",
+                "fill-color":"255,255,255,1",
+                "stroke":true,
+                "fill":true
+            },
+            {
+                "id":2,
+                "type":"LINE",
+                "from":"100,100",
+                "to":"100,150",
+                "stroke-width":1,
+                "stroke-color":"255,200,100,1"
+            },
+            {
+                "id":3,
+                "type":"ARC",
+                "position":"100,100",
+                "radius":50,
+                "arc-from":0,
+                "arc-to":360,
+                "stroke-width":1,
+                "stroke-color":"255,200,100,1",
+                "fill-color":"255,255,255,1",
+                "stroke":false,
+                "fill":true
+            },
+            {
+                "id":4,
+                "type":"POLYGON",
+                "points":["100,100","200,30","300,100"],
+                "close-in-origin":true,
+                "stroke-width":1,
+                "stroke-color":"255,200,100,1",
+                "fill-color":"255,255,255,1",
+                "stroke":true,
+                "fill":false
+            }
+        ]
+    },
+    "env":{
+        "debug":true,
+        "metrics":true,
+        "renderer":{
+            "fps":30
+        }
+    },
+    "metadata":{
+        "title":"building a braaausser",
+        "author":"da pipol",
+        "description":"",
+        "language":"es-CL"
+    }
+}

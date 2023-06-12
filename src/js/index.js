@@ -1,26 +1,39 @@
 import '../css/global.css';
 import '../scss/global.scss';
 
+import { fileLoader } from './modules/file-loader';
+import { fileParser } from './modules/file-parser';
+import { Renderer } from './modules/renderer';
+import { appState } from './modules/state';
+
+const initBrowser = async (event) => {
+  try {
+    // loader
+    const fileReference = event.target.files[0];
+    const uiTxt = await fileLoader.getFileAsTxt(fileReference);
+    // parser
+    const uiModel = await fileParser.toUI({
+      from: 'txt',
+      file: uiTxt
+    });
+    // update state
+    const newUI = {
+      ...uiModel,
+      ts: Date.now()
+    };
+    appState.currentUI = newUI;
+    appState.history.push(newUI);
+    // renderer
+    const currentUI = appState.currentUI.screen;
+    const engine = document.querySelector('#engine');
+    const renderer = new Renderer(engine);
+    renderer.draw(currentUI);
+  } catch (error) {
+    console.warn({ message: 'Unable to read file', error });
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-  const main = document.querySelector('#main');
-  const counter = main.querySelector('#counter');
-
-  main.addEventListener('click', (event) => {
-    const { id, type } = event.target;
-
-    if (type === 'button') {
-      const currentCount = Number(counter.textContent);
-
-      switch (id) {
-        case 'increment': {
-          counter.textContent = currentCount + 1;
-          break;
-        }
-        case 'decrement': {
-          counter.textContent = currentCount - 1;
-          break;
-        }
-      }
-    }
-  });
+  const fileInput = document.querySelector('#file-input');
+  fileInput.addEventListener('change', initBrowser);
 });

@@ -18,7 +18,7 @@ class RendererStep_Painting extends ProcessorStep {
   handle(ui) {
     console.log('renderer:painting', ui);
     // draw elements
-    this.ctx.fillStyle = '#ccc';
+    this.ctx.fillStyle = 'white';
     this.ctx.fillRect(0, 0, ui.width, ui.height);
     ui.elements.forEach((el) => el.draw(this.ctx));
     return ui;

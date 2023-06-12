@@ -51,69 +51,67 @@ export class Renderer {
     return this.drawProcess.run(elements);
   }
 }
+const canvasHelper = {
+  text: ({ ctx, config }) => {
+    ctx.beginPath();
+    ctx.fillStyle = 'green';
+    ctx.rect(10, 10, 50, 50);
+    ctx.stroke();
+  },
+  arc: ({ ctx, config }) => {
+    ctx.beginPath();
+    ctx.fillStyle = 'blue';
+    ctx.rect(100, 100, 50, 50);
+    ctx.fill();
+    ctx.stroke();
+  },
+  dot: ({ ctx, config }) => {
+    ctx.beginPath();
+    ctx.fillStyle = 'red';
+    ctx.rect(150, 150, 50, 50);
+    ctx.fill();
+    ctx.stroke();
+  },
+  rect: ({ ctx, config }) => {
+    ctx.beginPath();
+    ctx.fillStyle = 'purple';
+    ctx.rect(200, 200, 50, 50);
+    ctx.fill();
+    ctx.stroke();
+  },
+  polygon: ({ ctx, config }) => {
+    ctx.beginPath();
+    ctx.fillStyle = 'fucsia';
+    ctx.rect(10, 300, 50, 50);
+    ctx.fill();
+    ctx.stroke();
+  },
+  line({ ctx, config }) {
+    const { from, to } = {
+      from: { x: 10, y: 20 },
+      to: { x: 50, y: 50 }
+    };
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 3;
 
+    ctx.beginPath();
+    ctx.moveTo(from.x, from.y);
+    ctx.lineTo(to.x, to.y);
+    ctx.stroke();
+  }
+};
 class UIControl {
   constructor({ el, config }) {
     this.el = el;
     this.config = config;
     this.el.type = this.el.type.toLowerCase();
-    this.controls = {
-      text: ({ ctx, config }) => {
-        ctx.beginPath();
-        ctx.fillStyle = 'green';
-        ctx.rect(10, 10, 50, 50);
-        ctx.stroke();
-      },
-      arc: ({ ctx, config }) => {
-        ctx.beginPath();
-        ctx.fillStyle = 'blue';
-        ctx.rect(100, 100, 50, 50);
-        ctx.fill();
-        ctx.stroke();
-      },
-      dot: ({ ctx, config }) => {
-        ctx.beginPath();
-        ctx.fillStyle = 'red';
-        ctx.rect(150, 150, 50, 50);
-        ctx.fill();
-        ctx.stroke();
-      },
-      rect: ({ ctx, config }) => {
-        ctx.beginPath();
-        ctx.fillStyle = 'purple';
-        ctx.rect(200, 200, 50, 50);
-        ctx.fill();
-        ctx.stroke();
-      },
-      polygon: ({ ctx, config }) => {
-        ctx.beginPath();
-        ctx.fillStyle = 'fucsia';
-        ctx.rect(10, 300, 50, 50);
-        ctx.fill();
-        ctx.stroke();
-      },
-      line({ ctx, config }) {
-        const { from, to } = {
-          from: { x: 10, y: 20 },
-          to: { x: 50, y: 50 }
-        };
-        ctx.strokeStyle = 'red';
-        ctx.lineWidth = 3;
-
-        ctx.beginPath();
-        ctx.moveTo(from.x, from.y);
-        ctx.lineTo(to.x, to.y);
-        ctx.stroke();
-      }
-    };
   }
   draw(context) {
-    // utils.info(this);
     try {
-      this.controls[this.el.type]({ ctx: context, config: this.config });
+      // switch abreviado para dibujar la forma segun el type
+      canvasHelper[this.el.type]({ ctx: context, config: this.config });
     } catch (error) {
       console.log({ error });
-      // utils.track({ key: 'renderer--controls--error', val: this });
     }
   }
 }

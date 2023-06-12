@@ -6,11 +6,10 @@ import { fileParser } from './modules/file-parser';
 import { Renderer } from './modules/renderer';
 import { appState } from './modules/state';
 
-// config event
-const whenFileLoaded = async (event) => {
+const initBrowser = async (event) => {
   try {
-    const fileReference = event.target.files[0];
     // loader
+    const fileReference = event.target.files[0];
     const uiTxt = await fileLoader.getFileAsTxt(fileReference);
     // parser
     const uiModel = await fileParser.toUI({
@@ -24,7 +23,7 @@ const whenFileLoaded = async (event) => {
     };
     appState.currentUI = newUI;
     appState.history.push(newUI);
-    // render
+    // renderer
     const currentUI = appState.currentUI.screen;
     const engine = document.querySelector('#engine');
     const renderer = new Renderer(engine);
@@ -36,5 +35,5 @@ const whenFileLoaded = async (event) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const fileInput = document.querySelector('#file-input');
-  fileInput.addEventListener('change', whenFileLoaded);
+  fileInput.addEventListener('change', initBrowser);
 });

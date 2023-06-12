@@ -15,16 +15,8 @@ export class Processor {
 }
 
 export class ProcessorStep {
-  nextStep(step) {
-    this.next = step;
-  }
   process(data) {
-    const stepResult = this.execute(data);
-    if (this.next) return this.next.process(stepResult);
-    return stepResult;
-  }
-  execute(txt) {
-    return this.handle(txt);
+    return this.handle(data);
   }
   // method to replace
   handle(txt) {

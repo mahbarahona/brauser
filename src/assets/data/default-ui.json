@@ -8,6 +8,18 @@
         "stroke":true,
         "fill":true,
         "unit":1,
+        "resources":{
+            "contentPolicy":"script:self, data:self, http-only:true",
+            "list":[
+                    {
+                        "id":0,
+                        "type": "IMG",
+                        "name": "logo.png",
+                        "mimeType":"image/png",
+                        "source": "https://some-domain.com/assets/img/"
+                    }
+                ]
+        },
         "elements":[
             {
                 "id":0,
@@ -67,31 +79,7 @@
             }
         ]
     },
-    "resources":{
-        "contentPolicy":"script:self, data:self,http-only:true",
-        "list":[
-            {
-                "id":0,
-                "type": "IMG",
-                "protocol":"https",
-                "domain":"some-domain.com",
-                "uri":"https//blah.blah",
-                "mimeType":"",
-                "data":""
-            },
-             {
-                "id":1,
-                "type": "SCRIPT",
-                "protocol":"https",
-                "domain":"some-domain.com",
-                "uri":"https//blah.blah",
-                "mimeType":"",
-                "data":""
-            }
-            ]
-    },
-    "settings":{
-        "theme":"dark",
+    "env":{
         "debug":true,
         "metrics":true,
         "renderer":{
@@ -100,7 +88,7 @@
     },
     "metadata":{
         "title":"building a braaausser",
-        "author":"",
+        "author":"da pipol",
         "description":"",
         "language":"es-CL"
     }

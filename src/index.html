@@ -38,8 +38,8 @@
     <link rel="apple-touch-icon" href=<%= htmlWebpackPlugin.options.icon512 %>
     />
     <!-- prettier-ignore -->
-    <link rel="mask-icon" href=<%= htmlWebpackPlugin.options.icon512 %>
-    color="black" />
+    <!-- <link rel="mask-icon" href=<%= htmlWebpackPlugin.options.icon512 %>
+    color="black" /> -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
@@ -51,7 +51,7 @@
   <body>
     <main>
       <canvas id="engine"></canvas>
-      <div>
+      <div class="content">
         <div class="form-control">
           <label for="file-input" class="load-file-label">Import file</label>
           <input

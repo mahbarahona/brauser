@@ -1,4 +1,3 @@
-// objects
 export const fileLoader = {
   getFileAsTxt: (reference) => {
     return new Promise((resolve, reject) => {
